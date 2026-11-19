@@ -60,7 +60,7 @@ cat <<'EOF'
        (open the printed URL in the host browser; service-account keys
         carry NO free quota - use the console account)
     5. in-VM self-test:
-       curl -fsSL https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main/scripts/vm-doctor.sh | bash
+       curl -fsSL https://raw.githubusercontent.com/adiisinghh/jai-os/main/scripts/vm-doctor.sh | bash
 
   Reminder: a --fresh rebuild starts from a clean rootfs - the old VM's
   credential DB does not carry over. Step 4 is ~1 minute. Full runbook:
