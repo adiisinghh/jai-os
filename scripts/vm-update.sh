@@ -3,7 +3,7 @@
 # repo main, safely. Replaces the old ad-hoc "curl one file into place"
 # refreshes (which is how /etc/jai/opencode.json got truncated once).
 #
-#   curl -fsSL https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main/scripts/vm-update.sh | sudo bash
+#   curl -fsSL https://raw.githubusercontent.com/adiisinghh/jai-os/main/scripts/vm-update.sh | sudo bash
 #
 # Rules (learned the hard way, see docs/DECISIONS.md):
 #   - download to a temp file FIRST - never pipe into the live file
@@ -12,7 +12,7 @@
 #   - validate what can be validated (sudoers parses) before it lands
 set -euo pipefail
 
-REPO="${JAI_REPO:-https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main}"
+REPO="${JAI_REPO:-https://raw.githubusercontent.com/adiisinghh/jai-os/main}"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 msg() { printf '\033[jai]\033 %s\n' "$*"; }
