@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # vm-doctor.sh - run INSIDE the JAI OS VM: one-shot appliance self-test
 #
-#   curl -fsSL https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main/scripts/vm-doctor.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/adiisinghh/jai-os/main/scripts/vm-doctor.sh | bash
 #
 # Checks the whole chain: kernel module -> /dev/jai -> eventd capture ->
 # hands (jai-mcp) -> telemetry timers -> brain (opencode + credentials) ->
