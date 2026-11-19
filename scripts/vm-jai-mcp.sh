@@ -6,14 +6,14 @@
 #
 # One-shot (read it first if you like: scripts/vm-jai-mcp.sh in the repo):
 #
-#   curl -fsSL https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main/scripts/vm-jai-mcp.sh | sudo bash
+#   curl -fsSL https://raw.githubusercontent.com/adiisinghh/jai-os/main/scripts/vm-jai-mcp.sh | sudo bash
 #
 # Steps: toolchain -> fetch source -> compile -> /usr/bin/jai-mcp ->
 #        sudoers allowlist -> heartbeat test rig -> journal/memory groups ->
 #        agent config (backup first).
 set -euo pipefail
 
-REPO="${JAI_REPO:-https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main}"
+REPO="${JAI_REPO:-https://raw.githubusercontent.com/adiisinghh/jai-os/main}"
 msg() { printf '\033[1;36m[jai]\033[0m %s\n' "$*"; }
 
 msg "[1/7] toolchain (gcc + json-c)"
