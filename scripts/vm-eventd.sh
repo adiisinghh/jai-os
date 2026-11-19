@@ -4,14 +4,14 @@
 # Fetches everything from the repo over the VM's own network (slirp NAT),
 # exactly like vm-jai-mcp.sh does for the hands. One-shot:
 #
-#   curl -fsSL https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main/scripts/vm-eventd.sh | sudo bash
+#   curl -fsSL https://raw.githubusercontent.com/adiisinghh/jai-os/main/scripts/vm-eventd.sh | sudo bash
 #
 # Steps: toolchain -> fetch source -> compile -> /usr/bin/jai-eventd ->
 #        unit + logrotate -> heartbeat beat script + fixed unit ->
 #        enable + fire a test event -> show the captured record.
 set -euo pipefail
 
-REPO="${JAI_REPO:-https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main}"
+REPO="${JAI_REPO:-https://raw.githubusercontent.com/adiisinghh/jai-os/main}"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 msg() { printf '\033[jai]\033 %s\n' "$*"; }
@@ -72,8 +72,8 @@ PHASE 3C VM SETUP DONE - the reflex arc is attached.
 1. pipeline check by hand:
    echo "hello kernel" > /dev/jai && sleep 1 && tail -n 2 /var/lib/jai/events.jsonl
 2. give the brain the new tool (jai_events lives in jai-mcp v1.1.0):
-   curl -fsSL https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main/scripts/vm-update.sh | sudo bash
+   curl -fsSL https://raw.githubusercontent.com/adiisinghh/jai-os/main/scripts/vm-update.sh | sudo bash
 3. ask it:   jai "Use jai_events to report the last 3 kernel events."
 4. self-test anytime:
-   curl -fsSL https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main/scripts/vm-doctor.sh | bash
+   curl -fsSL https://raw.githubusercontent.com/adiisinghh/jai-os/main/scripts/vm-doctor.sh | bash
 NOTE
