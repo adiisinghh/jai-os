@@ -60,7 +60,7 @@ needs no daemon signaling (policy in `rootfs/overlay/etc/logrotate.d/jai`).
 
 ```bash
 # in the VM:
-curl -fsSL https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main/scripts/vm-eventd.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/adiisinghh/jai-os/main/scripts/vm-eventd.sh | sudo bash
 ```
 
 ## Acceptance (define it before you run it)
