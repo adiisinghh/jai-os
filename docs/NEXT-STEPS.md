@@ -281,7 +281,7 @@ network works — use it; no more giant copy-paste blocks):
 
 ```bash
 # IN THE VM (serial or ssh -p 2222 jai@localhost):
-curl -fsSL https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main/scripts/vm-jai-mcp.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/adiisinghh/jai-os/main/scripts/vm-jai-mcp.sh | sudo bash
 ```
 (The script: installs gcc+libjson-c-dev, fetches the C source, compiles to
 `/usr/bin/jai-mcp`, installs the sudoers allowlist + heartbeat test rig,
@@ -331,7 +331,7 @@ chroot and deploys the sudoers + heartbeat units automatically.
 - Refresh the whole JAI layer from repo main anytime (temp-download →
   compile-before-install → .bak everything):
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main/scripts/vm-update.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/adiisinghh/jai-os/main/scripts/vm-update.sh | sudo bash
 ```
 
 ## STEP 7c — Phase 3c: the reflex arc (jai-eventd + jai_events)
@@ -346,7 +346,7 @@ returns the status frame — see DECISIONS.md 2026-11-02.
 
 Install into the RUNNING VM, one command (like 7b):
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main/scripts/vm-eventd.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/adiisinghh/jai-os/main/scripts/vm-eventd.sh | sudo bash
 ```
 (The script compiles jai-eventd in the VM, installs the unit + logrotate,
 fixes the heartbeat unit — the old `date "+%F %T"` in ExecStart could
@@ -358,7 +358,7 @@ Acceptance (run in order):
 systemctl status jai-eventd                        # → active (running)
 echo "reflex test" > /dev/jai && sleep 1 && tail -1 /var/lib/jai/events.jsonl
 #   → {"ts":"...","seq":N,"text":"reflex test"}
-curl -fsSL https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main/scripts/vm-doctor.sh | bash
+curl -fsSL https://raw.githubusercontent.com/adiisinghh/jai-os/main/scripts/vm-doctor.sh | bash
 #   → 'appliance healthy' (kernel link round-trip, hands, reflex arc, timers, brain)
 jai "Use jai_events to report the last 3 kernel events."
 #   PASS = the brain cites the measured records via the hands, no shell fallback
@@ -382,7 +382,7 @@ pick THEMSELVES. Spec (the contract the code obeys): `docs/CAPABILITIES-SPEC.md`
 Install into the RUNNING VM, one command (like 7b/7c):
 ```bash
 # IN THE VM (serial or ssh -p 2222 jai@localhost):
-curl -fsSL https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main/scripts/vm-capabilities.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/adiisinghh/jai-os/main/scripts/vm-capabilities.sh | sudo bash
 ```
 (The script installs gcc+libjson-c-dev, fetches the C source, compiles
 IN THE VM — the build-host != target lesson — installs the oneshot unit,
@@ -394,7 +394,7 @@ cat /etc/jai/capabilities.json                      # valid JSON, "schema": 1
 /usr/local/bin/jai-capabilities --profile           # minimal|balanced|full
 systemd-analyze blame | grep jai-capabilities       # < 1 s boot cost
 sudo systemctl reboot                               # file regenerates at boot
-curl -fsSL https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main/scripts/vm-doctor.sh | bash
+curl -fsSL https://raw.githubusercontent.com/adiisinghh/jai-os/main/scripts/vm-doctor.sh | bash
 #   → 'capabilities.json valid: profile=minimal accel=cpu gpu=none' (VM has no GPU)
 ```
 GPU-less box → `accel=cpu` with NO crash is itself a criterion (graceful
