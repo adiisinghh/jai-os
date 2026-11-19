@@ -9,13 +9,13 @@
 #
 # One-shot (read it first if you like: scripts/vm-capabilities.sh in the repo):
 #
-#   curl -fsSL https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main/scripts/vm-capabilities.sh | sudo bash
+#   curl -fsSL https://raw.githubusercontent.com/adiisinghh/jai-os/main/scripts/vm-capabilities.sh | sudo bash
 #
 # Steps: toolchain -> fetch source -> compile -> /usr/local/bin ->
 #        systemd unit -> enable -> first run -> show the JSON.
 set -euo pipefail
 
-REPO="${JAI_REPO:-https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main}"
+REPO="${JAI_REPO:-https://raw.githubusercontent.com/adiisinghh/jai-os/main}"
 msg() { printf '\033[1;36m[jai]\033[0m %s\n' "$*"; }
 
 msg "[1/6] toolchain (gcc + json-c)"
@@ -60,6 +60,6 @@ acceptance checks (spec: docs/CAPABILITIES-SPEC.md):
   /usr/local/bin/jai-capabilities --profile
   systemd-analyze blame | grep jai-capabilities   # < 1 s budget
   sudo systemctl reboot                   # file regenerates at boot
-  curl -fsSL https://raw.githubusercontent.com/Adi103-ETAI/jai-os/main/scripts/vm-doctor.sh | bash
+  curl -fsSL https://raw.githubusercontent.com/adiisinghh/jai-os/main/scripts/vm-doctor.sh | bash
                                           # doctor now checks the probe too
 NOTE
